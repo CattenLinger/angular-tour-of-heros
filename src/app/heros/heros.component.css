@@ -1,0 +1,12 @@
+.heroes{
+    padding: 0;
+}
+
+.heroes li {
+    margin: 3pt;
+    
+    color: #F0F0F0;
+
+    border: 2pt solid #2e2e2e;
+
+}
