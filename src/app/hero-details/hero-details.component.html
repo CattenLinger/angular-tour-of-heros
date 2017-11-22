@@ -1,12 +1,12 @@
 <div *ngIf="hero">
   <h1>Details of {{hero.name | uppercase}}</h1>
-  <div>
+  <div class="detail-form">
     <div>
-      <label>id: </label>
-      <span>{{hero.id}}</span>
+      <label>id </label>
+      <input [(ngModel)]="hero.id" disabled>
     </div>
     <div>
-      <label>name: </label>
+      <label>name </label>
       <input type="text" [(ngModel)]="hero.name" placeholder="name">
     </div>
   </div>

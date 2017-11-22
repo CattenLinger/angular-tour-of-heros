@@ -1,0 +1,25 @@
+.detail-form > div{
+    margin: 1pt;
+    padding: 3pt;
+}
+
+.detail-form > div > * {
+    margin: 3pt;
+}
+
+.detail-form > div > label {
+    display: block;
+    font-size: 20pt;
+    font-weight: 200%;
+}
+
+.detail-form input{
+    border : none;
+    background: none;
+    border-bottom: 2pt solid #b1b1b1;
+}
+
+.detail-form input:disabled {
+    border-bottom-style: dashed;
+    border-color: #999999;
+}
