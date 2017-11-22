@@ -14,6 +14,8 @@ import { MessageService } from "../message.service";
 })
 export class HeroDetailsComponent implements OnInit {
 
+  saving : boolean = false;
+
   constructor(
     private route: ActivatedRoute,
     private heroService: HeroService,
@@ -29,10 +31,12 @@ export class HeroDetailsComponent implements OnInit {
 
   getHero(): void {
     const id = +this.route.snapshot.paramMap.get("id");
-    this.heroService.getHero(id).subscribe(hero => {
-      this.messageService.add(`HeroDetailsComponenet: data of hero id=${id} loaded`);
-      this.hero = hero;
-    })
+    this.heroService.getHero(id).subscribe(hero => this.hero = hero);
+  }
+
+  save(): void{
+    this.saving = true;
+    this.heroService.updateHero(this.hero).subscribe(() => this.goBack());
   }
 
   goBack(): void {
