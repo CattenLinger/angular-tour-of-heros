@@ -68,6 +68,19 @@ export class HeroService {
     );
   }
 
+  searchHeroes(term : string) : Observable<Hero[]>{
+    if(!term.trim()){
+      return of([]);
+    }
+
+    const url = `${this.herosUrl}?name=${term}`;
+
+    return this.http.get<Hero[]>(url).pipe(
+      tap(() => this.log(`found heroes matching "${term}"`)),
+      catchError(this.handleError<Hero[]>("searchHero",[]))
+    );
+  }
+
   private log(message: string): void {
     this.messageService.add(`HeroService : ${message}`);
   }
