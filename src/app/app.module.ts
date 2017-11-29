@@ -6,18 +6,21 @@ import { HttpClientModule } from "@angular/common/http";
 import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
 
 import { AppComponent } from './app.component';
-import { HeroesComponent } from './heroes/heroes.component';
-import { HeroDetailsComponent } from './hero-details/hero-details.component';
+import { HeroesComponent } from './hero/heroes/heroes.component';
+import { HeroDetailsComponent } from './hero/hero-details/hero-details.component';
 
-import { HeroService } from "./hero.service";
-import { MessageService } from './message.service';
+import { HeroService } from "./hero/hero.service";
+import { MessageService } from './message/message.service';
 import { InMemoryDataService } from "./in-memory-data.service";
 
 import { AppRoutingModule } from './app-routing.module';
 
-import { MessagesComponent } from './messages/messages.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { HeroSearchComponent } from './hero-search/hero-search.component';
+import { MessagesComponent } from './message/messages/messages.component';
+import { DashboardComponent } from './hero/dashboard/dashboard.component';
+import { HeroSearchComponent } from './hero/hero-search/hero-search.component';
+import { CrisisCenterComponent } from './crisis/crisis-center/crisis-center.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { CrisisListComponent } from './crisis/crisis-list/crisis-list.component';
 
 
 @NgModule({
@@ -27,7 +30,10 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
     HeroDetailsComponent,
     MessagesComponent,
     DashboardComponent,
-    HeroSearchComponent
+    HeroSearchComponent,
+    CrisisCenterComponent,
+    PageNotFoundComponent,
+    CrisisListComponent
   ],
   imports: [
     BrowserModule,

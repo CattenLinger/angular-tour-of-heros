@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Hero } from "../hero";
 
 import { HeroService } from '../hero.service';
-import { MessageService } from "../message.service";
+import { MessageService } from "../../message/message.service";
 
 @Component({
   selector: 'app-hereos',
