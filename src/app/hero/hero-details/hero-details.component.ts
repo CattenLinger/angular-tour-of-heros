@@ -1,19 +1,28 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, HostBinding } from '@angular/core';
 import { Router,ActivatedRoute,ParamMap } from "@angular/router";
 import { Location } from "@angular/common";
+import { Observable } from 'rxjs/Observable';
+
 import 'rxjs/add/operator/switchMap';
 
 import { Hero } from "../hero";
 
 import { HeroService } from "../hero.service";
 import { MessageService } from "../../message/message.service";
+import { Subscriber } from 'rxjs/Subscriber';
+import { slideInDownAnimation } from '../../animations/animations';
 
 @Component({
   selector: 'app-hero-details',
   templateUrl: './hero-details.component.html',
-  styleUrls: ['./hero-details.component.css']
+  styleUrls: ['./hero-details.component.css'],
+  animations: [slideInDownAnimation]
 })
 export class HeroDetailsComponent implements OnInit {
+
+  @HostBinding('@routeAnimation') routeAnimation = true;
+  @HostBinding('style.display')   display = 'block';
+  @HostBinding('style.position')  position = 'absolute';
 
   saving : boolean = false;
 
@@ -25,15 +34,17 @@ export class HeroDetailsComponent implements OnInit {
     private messageService: MessageService
   ) { }
 
-  @Input() hero; Hero;
+  // @Input() hero: Hero;
+  // hero$ : Observable<Hero>;
+
+  hero : Hero;
 
   ngOnInit() {
-    this.hero = this.route.paramMap.switchMap((params : ParamMap) => this.heroService.getHero(params.get("id")));
-  }
-
-  getHero(): void {
-    const id = +this.route.snapshot.paramMap.get("id");
-    this.heroService.getHero(id).subscribe(hero => this.hero = hero);
+    let heroId = this.route.snapshot.paramMap.get("id");
+    this.heroService.getHero(heroId).subscribe(hero => {
+      this.hero = hero;
+    });
+    // this.hero$ = this.route.paramMap.switchMap((params : ParamMap) => this.heroService.getHero(params.get("id")));
   }
 
   save(): void{
