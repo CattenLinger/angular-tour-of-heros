@@ -33,7 +33,7 @@ export class HeroService {
     );
   }
 
-  getHero(id: number): Observable<Hero> {
+  getHero(id: number | string): Observable<Hero> {
     this.log(`fetched hero id=${id}`);
 
     const heroUrl = `${this.herosUrl}/${id}`;

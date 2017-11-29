@@ -21,6 +21,7 @@ import { HeroSearchComponent } from './hero/hero-search/hero-search.component';
 import { CrisisCenterComponent } from './crisis/crisis-center/crisis-center.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CrisisListComponent } from './crisis/crisis-list/crisis-list.component';
+import { HeroesModule } from './hero/heroes.module';
 
 
 @NgModule({
@@ -39,11 +40,12 @@ import { CrisisListComponent } from './crisis/crisis-list/crisis-list.component'
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false}
-    )
+    ),
+    HeroesModule,
+    AppRoutingModule
   ],
   providers: [HeroService, MessageService],
   bootstrap: [AppComponent]
