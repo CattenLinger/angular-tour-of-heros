@@ -8,6 +8,8 @@ import { HeroDetailsComponent } from './hero-details/hero-details.component';
 import { HeroService } from "./hero.service";
 
 import { HeroRoutingModule } from "./hero-routing.module";
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { HeroSearchComponent } from './hero-search/hero-search.component';
 
 @NgModule({
   imports: [
@@ -20,7 +22,9 @@ import { HeroRoutingModule } from "./hero-routing.module";
   ],
   declarations: [
     HeroesComponent,
-    HeroDetailsComponent
+    HeroDetailsComponent,
+    DashboardComponent,
+    HeroSearchComponent
   ]
 })
 export class HeroesModule { }
