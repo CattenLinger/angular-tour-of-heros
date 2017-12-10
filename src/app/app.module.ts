@@ -13,25 +13,24 @@ import { InMemoryDataService } from "./in-memory-data.service";
 
 import { AppRoutingModule } from './app-routing.module';
 
-import { MessagesComponent } from './message/messages/messages.component';
-import { DashboardComponent } from './hero/dashboard/dashboard.component';
-import { HeroSearchComponent } from './hero/hero-search/hero-search.component';
-import { CrisisCenterComponent } from './crisis/crisis-center/crisis-center.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { CrisisListComponent } from './crisis/crisis-list/crisis-list.component';
+import { MessagesComponent } from './message/messages/messages.component';
+import { ComposeMessageComponent } from './message/compose-message.component';
 
 import { HeroesModule } from './hero/heroes.module';
+import { CrisisCenterModule } from './crisis/crisis-center.module';
+import { Routes } from '@angular/router';
 
+const routers : Routes = [
+
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     MessagesComponent,
-    DashboardComponent,
-    HeroSearchComponent,
-    CrisisCenterComponent,
+    ComposeMessageComponent,
     PageNotFoundComponent,
-    CrisisListComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +41,7 @@ import { HeroesModule } from './hero/heroes.module';
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false}
     ),
+    CrisisCenterModule,
     HeroesModule,
     AppRoutingModule
   ],
